@@ -8,11 +8,15 @@ import '../node_modules/material-design-icons/iconfont/material-icons.css'
 import '../node_modules/materialize-css/dist/css/materialize.css'
 import M from '../node_modules/materialize-css/dist/js/materialize.js'
 
-ReactDOM.render(<App />, document.getElementById('root'));
+import { Provider } from 'react-redux'; 
+import store from './Store/index'
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
+ReactDOM.render( 
+    <Provider store={ store }> 
+        <App /> 
+    </Provider>, 
+document.getElementById('root')); 
+
 serviceWorker.unregister();
 
 export default M; 

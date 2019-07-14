@@ -4,10 +4,12 @@ import ProductList from './ProductList';
 
 class Products extends Component { 
     render() { 
-        let { trees, love } = this.props; 
+        let { trees, love, addToCart } = this.props; 
         return ( 
             <div className="container"> 
-                <h1 className="text-center">Our Products</h1> 
+                <h1 className="center-align blue-text text-darken-2"> 
+                    Our Products 
+                </h1> 
                 <div className="row"> 
                 { 
                     trees.map(tree => { 
@@ -15,6 +17,7 @@ class Products extends Component {
                             <ProductList 
                                 key={tree.id} 
                                 tree={tree} 
+                                addToCart={addToCart} 
                                 love={love} /> 
                         ) 
                     }) 
@@ -32,7 +35,8 @@ const mapStateToProps = (state) => {
 } 
 
 const mapDispatchToProps = (dispatch) => ({ 
-    love: (id) => dispatch({type: 'LOVE', payload: id}) 
+    love: (id) => dispatch({type: 'LOVE', payload: id}), 
+    addToCart: (tree) => dispatch({type: 'ADD_TO_CART', payload: tree}) 
 }) 
 
 export default connect(mapStateToProps, mapDispatchToProps)(Products) 

@@ -1,19 +1,18 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import M from '../../index'
-// import M from '../../../node_modules/materialize-css/dist/js/materialize'
 
 
 class Navigation extends Component { 
 
   componentDidMount() { 
      var elem = document.querySelector(".sidenav"); 
-     var instance = M.Sidenav.init(elem); 
+     let instance = M.Sidenav.init(elem); 
   } 
 
   render() { 
      return ( 
-        <div>
+        <div className="navbar-fixed">
            <nav className="green darken-2">
               <div className="nav-wrapper container">
                  <span>
@@ -29,9 +28,9 @@ class Navigation extends Component {
                     <li> <NavLink to="/"> Home </NavLink> </li>
                     <li> <NavLink to="/product"> Our Product </NavLink> </li>
                     <li> <NavLink to="/cart"> Cart </NavLink> </li>
-                 </ul>
-              </div>
-           </nav>
+                 </ul> 
+              </div> 
+           </nav> 
  
 
            {/* For mobile view */}
@@ -39,10 +38,11 @@ class Navigation extends Component {
                <li> <NavLink to="/"> Home </NavLink> </li>
                <li> <NavLink to="/product"> Our Product </NavLink> </li>
                <li> <NavLink to="/cart"> Cart </NavLink> </li>
-           </ul>
-        </div>
-     )
-  }
-}
+           </ul> 
+        </div> 
+     ) 
+  } 
+} 
+
 export default Navigation;
 

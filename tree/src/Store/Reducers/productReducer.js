@@ -11,18 +11,20 @@ import nine from '../../assets/images/9.jpg'
 
 
 const initState = [ 
-    {id: 1, name: 'Knock out rose', prize: '400 TK',   image: one,    love: 10}, 
-    {id: 2, name: 'Cypress Tree',   prize: '620 TK',   image: two,    love: 208}, 
-    {id: 3, name: 'Flower Tree',    prize: '230 TK',   image: three,  love: 50}, 
-    {id: 4, name: 'Oak Tree',       prize: '1350 TK',  image: four,   love: 0}, 
-    {id: 5, name: 'Wisteria Tree',  prize: '2200 TK',  image: eight,  love: 250}, 
-    {id: 6, name: 'Mango Tree',     prize: '175 TK',   image: six,    love: 31}, 
-    {id: 7, name: 'House Plant',    prize: '350 TK',   image: seven,  love: 30}, 
-    {id: 8, name: 'Oak Tree',       prize: '980 TK',   image: five,   love: 1}, 
-    {id: 9, name: 'Dog Wood Tree',  prize: '1200 TK',  image: nine,   love: 20} 
+    {id: 1, name: 'Knock out rose', prize: 400,   image: one,    love: 10}, 
+    {id: 2, name: 'Cypress Tree',   prize: 620,   image: two,    love: 208}, 
+    {id: 3, name: 'Flower Tree',    prize: 230,   image: three,  love: 50}, 
+    {id: 4, name: 'Oak Tree',       prize: 1350,  image: four,   love: 0}, 
+    {id: 5, name: 'Wisteria Tree',  prize: 2200,  image: eight,  love: 250}, 
+    {id: 6, name: 'Mango Tree',     prize: 175,   image: six,    love: 31}, 
+    {id: 7, name: 'House Plant',    prize: 350,   image: seven,  love: 30}, 
+    {id: 8, name: 'Oak Tree',       prize: 980,   image: five,   love: 1}, 
+    {id: 9, name: 'Dog Wood Tree',  prize: 1200,  image: nine,   love: 20} 
 ] 
 
+
 const productReducer = (state = initState, action) => { 
+    // love increase
     if(action.type === 'LOVE') { 
         let updated_trees = state.map(tree => { 
             if(tree.id === action.payload) { 

@@ -59,7 +59,7 @@ function Cart(props) {
                     Continue Shoping 
                     <i className="material-icons left">keyboard_backspace</i> 
                 </button> 
-            }
+            } 
 
             { 
                 trees.length > 0 &&  
@@ -79,4 +79,4 @@ const mapDispatchToProps = (dispatch) => ({
     remove: (id) => dispatch({type: 'REMOVE_FROM_CART', payload: id}) 
 }) 
 
-export default connect(mapStateToProps, mapDispatchToProps)(Cart) 
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Cart)) 

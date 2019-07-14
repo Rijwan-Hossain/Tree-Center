@@ -12,7 +12,7 @@ class Navigation extends Component {
 
   render() { 
      return ( 
-        <div className="navbar-fixed">
+        <div> 
            <nav className="green darken-2">
               <div className="nav-wrapper container">
                  <span>

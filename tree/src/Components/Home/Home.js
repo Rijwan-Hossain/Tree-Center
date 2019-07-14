@@ -1,11 +1,26 @@
-import React from 'react'
+import React from 'react' 
+import Carosel from './Carosel/Carosel' 
 
-function Home() {
+function Home() { 
     return ( 
         <div> 
-            <h1>Home Page</h1>
+            <Carosel /> 
+            <div style={{height: '70px'}}></div> 
+            <blockquote className="container">
+                <h3>Green Bangladesh, Beautiful Bangladesh</h3>
+            </blockquote> 
+            <div 
+                style={{height: '50px'}}
+                className="footer-copyright grey darken-2">
+                <div 
+                    style={{lineHeight: '50px'}}
+                    className="container center-align white-text">
+                    © 2019 Copyright Text
+                </div> 
+            </div> 
         </div> 
     ) 
 } 
 
-export default Home
+export default Home; 
+

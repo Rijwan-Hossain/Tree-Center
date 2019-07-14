@@ -19,7 +19,9 @@ function Cart(props) {
             
             { 
                 trees.length > 0 &&  
-                <div style={{display: 'flex'}}> 
+                <div 
+                    className="hide-on-med-and-down"
+                    style={{display: 'flex'}}> 
                     <h5 style={{width: '20%', marginLeft: '35px'}}>Products</h5> 
                     <h5 style={{width: '20%', marginLeft: '-10px'}}>Name</h5> 
                     <h5 style={{width: '20%', marginLeft: '-35px'}}>Prize</h5> 

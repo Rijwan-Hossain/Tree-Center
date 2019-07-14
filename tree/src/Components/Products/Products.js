@@ -6,24 +6,35 @@ class Products extends Component {
     render() { 
         let { trees, love, addToCart } = this.props; 
         return ( 
-            <div className="container"> 
-                <h1 className="center-align blue-text text-darken-2"> 
-                    Our Products 
-                </h1> 
-                <div className="row"> 
-                { 
-                    trees.map(tree => { 
-                        return ( 
-                            <ProductList 
-                                key={tree.id} 
-                                tree={tree} 
-                                addToCart={addToCart} 
-                                love={love} /> 
-                        ) 
-                    }) 
-                } 
+            <div>
+                <div className="container"> 
+                    <h1 className="center-align blue-text text-darken-2"> 
+                        Our Products 
+                    </h1> 
+                    <div className="row"> 
+                    { 
+                        trees.map(tree => { 
+                            return ( 
+                                <ProductList 
+                                    key={tree.id} 
+                                    tree={tree} 
+                                    addToCart={addToCart} 
+                                    love={love} /> 
+                            ) 
+                        }) 
+                    } 
+                    </div> 
                 </div> 
-            </div> 
+                <div 
+                    style={{height: '50px'}}
+                    className="footer-copyright grey darken-2">
+                    <div 
+                        style={{lineHeight: '50px'}} 
+                        className="container center-align white-text">
+                        © 2019 Rijwan Hossain
+                    </div> 
+                </div> 
+            </div>
         ) 
     } 
 } 

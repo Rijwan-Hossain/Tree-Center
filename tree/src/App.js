@@ -1,13 +1,27 @@
 import React, { Component } from 'react'
 
-class App extends Component {
+import { BrowserRouter, Switch, Route } from 'react-router-dom'
+
+import Navigation from './Components/Navigation/Navigation'
+import Home from './Components/Home/Home'
+import Products from './Components/Products/Products'
+import Cart from './Components/Cart/Cart'
+
+class App extends Component { 
   render() { 
     return ( 
-      <div> 
-        <h1>Hello World</h1> 
-      </div> 
+      <BrowserRouter> 
+      <Navigation /> 
+       <Switch> 
+         <Route path="/" component={ Home } exact /> 
+         <Route path="/product" component={ Products } /> 
+         <Route path="/cart" component={ Cart } /> 
+         <Route component={ Error } /> 
+       </Switch> 
+     </BrowserRouter> 
     ) 
   } 
 } 
 
 export default App; 
+

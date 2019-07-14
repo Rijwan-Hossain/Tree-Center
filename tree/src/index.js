@@ -6,10 +6,12 @@ import * as serviceWorker from './serviceWorker';
 
 import '../node_modules/material-design-icons/iconfont/material-icons.css'
 import '../node_modules/materialize-css/dist/css/materialize.css'
-import M from '../node_modules/materialize-css/dist/js/materialize.js'
+import * as M from "../node_modules/materialize-css/dist/js/materialize.js"
 
 import { Provider } from 'react-redux'; 
 import store from './Store/index'
+
+export default M 
 
 ReactDOM.render( 
     <Provider store={ store }> 
@@ -19,4 +21,3 @@ document.getElementById('root'));
 
 serviceWorker.unregister();
 
-export default M; 

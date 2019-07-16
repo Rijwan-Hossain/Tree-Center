@@ -7,9 +7,10 @@ function Cart(props) {
     let { trees, remove } = props 
 
     let total = 0; 
-    trees.map(tree => {  
-        total += tree.prize  
+    trees.map(tree => { 
+        total += tree.prize 
     }) 
+
     
     return ( 
         <div className="container"> 
@@ -50,6 +51,7 @@ function Cart(props) {
                         Your cart is empty
                     </h5> 
                     <p>Add some product to the cart</p> 
+                    <div style={{height: '50px'}}></div> 
                 </div> 
             } 
 

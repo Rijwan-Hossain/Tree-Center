@@ -2,13 +2,26 @@ import React, { Component } from 'react'
 import M from '../../index' 
 
 class ProductList extends Component { 
+    state = { 
+        btnValue: 'Add to cart', 
+        isAdded: false
+    } 
+
     componentDidMount() { 
         let elems = document.querySelectorAll('.materialboxed');
         M.Materialbox.init(elems);
     } 
 
+    buttonClicked = (tree) => { 
+        this.props.addToCart(tree) 
+        this.setState({ 
+            btnValue: 'Added', 
+            isAdded: true 
+        }) 
+    } 
+    
     render() { 
-        let { tree, love, addToCart } = this.props 
+        let { tree, love } = this.props 
         
         return ( 
             <div className="col s12 m6 l4"> 
@@ -37,11 +50,20 @@ class ProductList extends Component {
                         </h6> 
                     </div> 
                     <div className="card-action"> 
-                        <button 
-                        onClick={() => addToCart(tree)}
-                            className="waves-effect waves-light btn green darken-1">
-                            Add to cart 
+                    { 
+                        this.state.isAdded 
+                        ?  
+                        <button  
+                            className="btn disabled">  
+                            {this.state.btnValue} 
                         </button> 
+                        : 
+                        <button  
+                            onClick={() => this.buttonClicked(tree)}  
+                            className="waves-effect waves-light btn green darken-1"> 
+                            {this.state.btnValue} 
+                        </button> 
+                    } 
                     </div> 
                 </div> 
             </div> 

@@ -13,6 +13,9 @@ const cartReducer = (state = [], action) => {
         }) 
         return cart 
     } 
+    else if(action.type === 'INCREASE_PRODUCT') { 
+
+    } 
     return state 
 } 
 

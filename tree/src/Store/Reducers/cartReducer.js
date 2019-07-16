@@ -14,7 +14,31 @@ const cartReducer = (state = [], action) => {
         return cart 
     } 
     else if(action.type === 'INCREASE_PRODUCT') { 
-
+        let cart = state.map(tree => {
+            if(tree.id === action.payload) {
+                tree.buy++ 
+                return tree 
+            } 
+            else 
+                return tree 
+        }) 
+        return cart 
+    } 
+    else if(action.type === 'DECREASE_PRODUCT') { 
+        let cart = state.map(tree => { 
+            if(tree.id === action.payload) { 
+                if(tree.buy <= 1) { 
+                    return tree 
+                } 
+                else {
+                    tree.buy-- 
+                    return tree 
+                }
+            } 
+            else 
+                return tree 
+        }) 
+        return cart 
     } 
     return state 
 } 

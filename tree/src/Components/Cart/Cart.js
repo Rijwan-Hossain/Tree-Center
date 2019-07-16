@@ -4,11 +4,11 @@ import CartList from './CartList'
 import { withRouter } from 'react-router-dom' 
 
 function Cart(props) { 
-    let { trees, remove } = props 
-
+    let { trees, remove, increase, decrease } = props 
+    
     let total = 0; 
     trees.map(tree => { 
-        total += tree.prize 
+        total = total + (tree.prize * tree.buy) 
     }) 
 
     
@@ -26,6 +26,7 @@ function Cart(props) {
                     <h5 style={{width: '20%', marginLeft: '35px'}}>Products</h5> 
                     <h5 style={{width: '20%', marginLeft: '-10px'}}>Name</h5> 
                     <h5 style={{width: '20%', marginLeft: '-35px'}}>Prize</h5> 
+                    <h5 style={{width: '20%', marginLeft: '-35px'}}>Buy</h5> 
                     <h5 style={{width: '20%', marginLeft: '-25px'}}>Remove</h5> 
                 </div> 
             } 
@@ -40,6 +41,8 @@ function Cart(props) {
                             <CartList 
                                 tree={tree} 
                                 remove={remove} 
+                                increase={increase} 
+                                decrease={decrease} 
                                 key={tree.id} /> 
                         ) 
                     }) 
@@ -80,7 +83,9 @@ const mapStateToProps = (state) => {
 } 
 
 const mapDispatchToProps = (dispatch) => ({ 
-    remove: (id) => dispatch({type: 'REMOVE_FROM_CART', payload: id}) 
+    remove: (id) => dispatch({type: 'REMOVE_FROM_CART', payload: id}), 
+    increase: (id) => dispatch({type: 'INCREASE_PRODUCT', payload: id}),
+    decrease: (id) => dispatch({type: 'DECREASE_PRODUCT', payload: id}) 
 }) 
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Cart)) 
